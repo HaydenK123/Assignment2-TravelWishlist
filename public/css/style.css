@@ -7,6 +7,12 @@
 
 /* Set some basic styles for the body */
 body {
+  background-image: url('/images/travel-bg.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+  font-family: 'Lora', serif; 
   font-family: 'Arial', sans-serif;
   line-height: 1.6;
   background-color: #f4f4f9;
