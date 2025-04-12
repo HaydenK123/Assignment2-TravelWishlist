@@ -1,0 +1,27 @@
+<!-- destinations/index.hbs -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Destinations</title>
+  <link rel="stylesheet" href="/css/style.css">  <!-- Link to your CSS file -->
+</head>
+<body>
+  <div class="container">
+    <h1>Your Travel Destinations</h1>
+
+    {{#if destinations.length}}
+      <ul>
+        {{#each destinations}}
+          <li>{{this.name}} - {{this.country}} <a href="/destinations/{{this._id}}">View</a></li>
+        {{/each}}
+      </ul>
+    {{else}}
+      <p>No destinations added yet.</p>
+    {{/if}}
+
+    <a href="/destinations/new">Add New Destination</a>
+  </div>
+</body>
+</html>

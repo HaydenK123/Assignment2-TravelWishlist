@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Add New Destination</title>
+</head>
+<body>
+  <h1>Add a New Destination</h1>
+  <form action="/destinations" method="POST">
+    <label for="name">Name:</label>
+    <input type="text" name="name" required>
+    <label for="country">Country:</label>
+    <input type="text" name="country" required>
+    <label for="description">Description:</label>
+    <textarea name="description" required></textarea>
+    <label for="visited">Visited:</label>
+    <input type="checkbox" name="visited">
+    <button type="submit">Add Destination</button>
+  </form>
+</body>
+</html>

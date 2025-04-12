@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>{{title}}</title>
+    <link rel="stylesheet" href="/css/style.css">
+  </head>
+  <body>
+    <header>
+      <h1>Travel Wishlist</h1>
+      <nav>
+        <a href="/">Home</a>
+        {{#if user}}
+          <a href="/destinations">Destinations</a>
+          <a href="/map">Map</a> <!-- Link to the map page -->
+          <a href="/users/logout">Logout</a>
+        {{else}}
+          <a href="/users/login">Login</a>
+          <a href="/users/register">Register</a>
+        {{/if}}
+      </nav>
+    </header>
+
+    <main>
+      {{{body}}}  <!-- The content of each page will be injected here -->
+    </main>
+
+    <footer>
+      <p>&copy; 2025 Travel Wishlist App</p>
+    </footer>
+  </body>
+</html>
