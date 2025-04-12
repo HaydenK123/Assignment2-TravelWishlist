@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{destination.name}}</title>
+</head>
+<body>
+  <h1>{{destination.name}}</h1>
+  <p>Country: {{destination.country}}</p>
+  <p>Description: {{destination.description}}</p>
+  <p>Visited: {{#if destination.visited}}Yes{{else}}No{{/if}}</p>
+  <a href="/destinations/{{destination._id}}/edit">Edit Destination</a>
+  <form action="/destinations/{{destination._id}}/delete" method="POST">
+    <button type="submit">Delete Destination</button>
+  </form>
+</body>
+</html>
