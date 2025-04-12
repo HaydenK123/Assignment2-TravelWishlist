@@ -9,6 +9,8 @@ import { fileURLToPath } from 'url';
 import indexRouter from './routes/index.js';
 import usersRouter from './routes/users.js';
 import destinationRoutes from './routes/destinations.js';
+import methodOverride from 'method-override';
+
 
 dotenv.config();
 
@@ -18,6 +20,7 @@ const __dirname = path.dirname(__filename);
 
 // Create Express app
 const app = express();
+app.use(methodOverride('_method'));
 
 // View setup
 const viewsPath = path.join(__dirname, 'views');
