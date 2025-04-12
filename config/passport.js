@@ -1,24 +1,21 @@
 import passport from 'passport';
-import { Strategy as LocalStrategy } from 'passport-local';  // Correct import for ESM
-import { User } from '../models/User.js';  // Use named import for the User model
+import { Strategy as LocalStrategy } from 'passport-local';
+import { User } from '../models/User.js'; 
 
+// Define Local Strategy
 passport.use(
   new LocalStrategy(
     {
-      usernameField: 'username',  // Use 'username' field for authentication
-      passwordField: 'password',  // Even though we won't use the password, it's still part of the form
+      usernameField: 'username',
+      passwordField: 'password',
     },
     async (username, password, done) => {
       try {
-        // Find the user by username (bypassing password check)
         const user = await User.findOne({ username });
-
         if (!user) {
           return done(null, false, { message: 'Username not found' });
         }
-
-        // Skip checking the password (always authenticate if username matches)
-        return done(null, user);  // If user exists, log them in regardless of password
+        return done(null, user);
       } catch (err) {
         console.error('Passport Authentication Error:', err);
         return done(err);
@@ -27,7 +24,7 @@ passport.use(
   )
 );
 
-// Serialize and deserialize the user to store in the session
+// Serialize and Deserialize User
 passport.serializeUser((user, done) => {
   done(null, user.id);
 });
@@ -40,3 +37,6 @@ passport.deserializeUser(async (id, done) => {
     done(err);
   }
 });
+
+// Export passport
+export default passport;
