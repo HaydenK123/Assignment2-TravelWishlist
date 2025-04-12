@@ -1,0 +1,18 @@
+<!-- views/add.hbs -->
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Add Destination</title>
+</head>
+<body>
+  <h1>Add a New Destination</h1>
+  <form method="POST" action="/users/add">
+    <input type="text" name="title" placeholder="Title" required><br>
+    <input type="text" name="location" placeholder="Location"><br>
+    <input type="text" name="imageUrl" placeholder="Image URL"><br>
+    <textarea name="description" placeholder="Description"></textarea><br>
+    <button type="submit">Add Destination</button>
+  </form>
+  <p><a href="/users/dashboard">Back to Dashboard</a></p>
+</body>
+</html>
