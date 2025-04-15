@@ -1,6 +1,12 @@
 <!-- Login Form (login.hbs) -->
 <h1>Login</h1>
 
+{{#if success_msg}}
+  <div class="alert alert-success">
+    {{success_msg}}
+  </div>
+{{/if}}
+
 {{#if error_msg}}
   <div class="alert alert-danger">
     {{error_msg}}
@@ -19,6 +25,8 @@
   </div>
 
   <button type="submit">Login</button>
+  <hr>
+<a href="/users/github">Log in with GitHub</a>
 </form>
 
 <p>Don't have an account? <a href="/users/register">Register here</a></p>

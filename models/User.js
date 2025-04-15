@@ -3,7 +3,8 @@ import bcrypt from 'bcryptjs';
 
 const userSchema = new mongoose.Schema({
   username: { type: String, required: true, unique: true },
-  password: { type: String, required: false }  // Password is optional now
+  password: { type: String, required: false },  // Password is optional now
+  githubId: { type: String, required: false }   // GitHub login support
 });
 
 // Method to compare passwords during login

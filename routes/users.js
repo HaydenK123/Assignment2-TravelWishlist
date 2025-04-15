@@ -6,8 +6,12 @@ const router = express.Router();
 
 // Login page (GET)
 router.get('/login', (req, res) => {
-  res.render('login');
+  res.render('login', {
+    error_msg: req.flash('error'), // Show flash messages from failed login
+    success_msg: req.flash('success_msg')
+  });
 });
+
 
 // Login handling (POST)
 router.post('/login', (req, res, next) => {
@@ -84,3 +88,18 @@ router.get('/logout', (req, res) => {
 });
 
 export default router;
+
+// GitHub Login Route
+router.get('/github', passport.authenticate('github', { scope: ['user:email'] }));
+
+// GitHub Callback Route
+router.get('/github/callback',
+  passport.authenticate('github', {
+    failureRedirect: '/users/login',
+    failureFlash: true
+  }),
+  (req, res) => {
+    req.flash('success_msg', 'Logged in with GitHub');
+    res.redirect('/dashboard');
+  }
+);
